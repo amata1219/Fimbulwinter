@@ -1,5 +1,6 @@
 package amata1219.fimbulwinter;
 
+import amata1219.fimbulwinter.dsl.ExecutableItem;
 import amata1219.fimbulwinter.enchantment.GleamEnchantment;
 import amata1219.fimbulwinter.listener.PlayerClickExecutableItemListener;
 import org.bukkit.NamespacedKey;
@@ -9,7 +10,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import java.lang.reflect.Field;
 
-public class Fimbulwinter extends JavaPlugin {
+public class Fimbulwinter extends JavaPlugin implements FimbulwinterAPI {
 
     private final ExecutableItemRegistry executableItemRegistry = new ExecutableItemRegistry();
 
@@ -39,6 +40,16 @@ public class Fimbulwinter extends JavaPlugin {
         } catch (NoSuchFieldException | IllegalAccessException ignored) {
 
         }
+    }
+
+    @Override
+    public void register(ExecutableItem item) {
+        executableItemRegistry.register(item);
+    }
+
+    @Override
+    public void unregister(ExecutableItem item) {
+        executableItemRegistry.unregister(item);
     }
 
 }
