@@ -31,7 +31,7 @@ public class Item {
     public List<String> lore = new ArrayList<>();
     public Set<ItemFlag> flags = new HashSet<>();
     public Multimap<Attribute, AttributeModifier> attributeModifiers = ArrayListMultimap.create();
-    public Consumer<ItemStack> additionalSettings = Constants.noOperation();
+    public Consumer<ItemStack> additionalSettings = it -> {};
 
     public void enchant(Enchantment enchantment, EnchantmentLevel level) {
         enchantments.put(enchantment, level);
