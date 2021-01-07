@@ -22,8 +22,6 @@ public class Main extends JavaPlugin {
 }
 ```
 ```Java
-package amata1219.fimbulwinter;
-
 import amata1219.fimbulwinter.dsl.ExecutableItem;
 import amata1219.fimbulwinter.dsl.event.PlayerClickExecutableItemEvent;
 import amata1219.fimbulwinter.dsl.type.EnchantmentLevel;
