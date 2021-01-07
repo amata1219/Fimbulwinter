@@ -46,7 +46,7 @@ public class PlayerClickExecutableItemListener implements Listener {
             if (cooldowns.containsKey(executableItem)) {
                 long elapsedTimeTicks = (System.currentTimeMillis() - cooldowns.get(executableItem)) / 50;
                 if (elapsedTimeTicks <= cooldownTicks.ticks) {
-                    executableItem.actionDuringCooldown.accept(player);
+                    executableItem.actionDuringCooldown.accept(player, elapsedTimeTicks);
                     return;
                 } else {
                     cooldowns.put(executableItem, System.currentTimeMillis());

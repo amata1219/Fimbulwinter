@@ -9,6 +9,7 @@ import org.bukkit.event.block.Action;
 import org.bukkit.inventory.ItemStack;
 
 import java.util.Set;
+import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 
 public abstract class ExecutableItem {
@@ -16,10 +17,10 @@ public abstract class ExecutableItem {
     public final String id;
     public final boolean consumable;
     public final Tick cooldownTicks;
-    public final Consumer<Player> actionDuringCooldown;
+    public final BiConsumer<Player, Long> actionDuringCooldown;
     public final Set<Action> triggers;
 
-    public ExecutableItem(String id, boolean consumable, Tick cooldownTicks, Consumer<Player> actionDuringCooldown, Action... triggers) {
+    public ExecutableItem(String id, boolean consumable, Tick cooldownTicks, BiConsumer<Player, Long> actionDuringCooldown, Action... triggers) {
         this.id = id;
         this.consumable = consumable;
         this.actionDuringCooldown = actionDuringCooldown;
